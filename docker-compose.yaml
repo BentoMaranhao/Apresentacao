@@ -9,8 +9,8 @@ services:
             - environment
         volumes:
             - type: bind
-              source: .
-              target: /sub
+              source: ./csv
+              target: /sub/csv
         networks:
             postgres_net:
 

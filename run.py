@@ -10,7 +10,7 @@ cursor = database_.cursor()
 cursor.execute("SELECT * FROM {}".format(os.environ["TABLE_NAME"]))
 data = cursor.fetchmany(1000)
 
-file_name = str(os.environ["CSV_NAME"] + ".csv")
+file_name = str("csv/" + os.environ["CSV_NAME"] + ".csv")
 print(file_name)
 
 with open(file_name, "w") as csv_file:

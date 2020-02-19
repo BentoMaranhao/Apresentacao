@@ -2,3 +2,4 @@ venv
 .idea
 environment
 *.csv
+csv
