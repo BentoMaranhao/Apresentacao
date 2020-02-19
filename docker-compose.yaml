@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
     csv_writer:
@@ -10,7 +10,7 @@ services:
         volumes:
             - type: bind
               source: .
-              target: ~/sub
+              target: /sub
         networks:
             postgres_net:
 

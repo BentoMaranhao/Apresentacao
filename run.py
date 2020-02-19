@@ -10,16 +10,18 @@ cursor = database_.cursor()
 cursor.execute("SELECT * FROM {}".format(os.environ["TABLE_NAME"]))
 data = cursor.fetchmany(1000)
 
-#print(data[39])
+file_name = str(os.environ["CSV_NAME"] + ".csv")
+print(file_name)
 
-with open("lalouiga.csv", "w") as lalouiga:
-    csv_writer = csv.writer(lalouiga)
+with open(file_name, "w") as csv_file:
+    csv_writer = csv.writer(csv_file)
     csv_writer.writerow([i[0] for i in cursor.description])
 
-with open("lalouiga.csv", "a") as lalouiga:
-    csv_writer.writerows(data)
-
-#print(cursor.description)
+while (data):
+    with open(file_name, "a") as csv_file:
+        csv_writer = csv.writer(csv_file)
+        csv_writer.writerows(data)
+    data = cursor.fetchmany(1000)
 
 database_.close()
 cursor.close()
