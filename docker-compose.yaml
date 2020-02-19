@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+    csv_writer:
+        image: csv_writer
+        build:
+            context: .
+        env_file:
+            - environment
+        volumes:
+            - type: bind
+              source: .
+              target: ~/sub
+        networks:
+            postgres_net:
+
+networks:
+   postgres_net:
+#volumes:
+#    <volume_name>:
