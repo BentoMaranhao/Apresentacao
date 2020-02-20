@@ -11,12 +11,8 @@ services:
             - type: bind
               source: ./csv
               target: /sub/csv
-        networks:
-            postgres_net:
 
-
-
-networks:
-   postgres_net:
+#networks:
+#   postgres_net:
 #volumes:
 #    <volume_name>:
